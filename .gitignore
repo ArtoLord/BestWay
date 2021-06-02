@@ -4,3 +4,4 @@ db*
 .idea
 data/*
 *.db
+.ipy*
