@@ -3,3 +3,4 @@ __pycache*
 db*
 .idea
 data/*
+*.db
