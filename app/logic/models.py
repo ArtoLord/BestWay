@@ -1,15 +1,15 @@
 from dataclasses import dataclass
-from geom import Vector
-from typing import Union
+from .geom import Vector
+from typing import Union, Optional
 
 
 @dataclass
 class Node:
     __DEGREES_DISTANCE = 111_139
-
     id: int
     lon: float
     lat: float
+
 
     @property
     def vector(self) -> Vector:

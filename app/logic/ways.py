@@ -1,8 +1,8 @@
-from graph import Graph, Way
-from models import Node
+from .graph import Graph, Way
+from .models import Node
 from sklearn.neighbors import NearestNeighbors
 import numpy as np
-from geom import elipse_generator
+from .geom import elipse_generator
 
 
 class Pathfinder:
@@ -53,7 +53,7 @@ class Pathfinder:
             for end_id in last_neighbors:
                 start = self.__graph.get_node(self.__ids[start_id])
                 end = self.__graph.get_node(self.__ids[end_id])
-                for middle_vec in elipse_generator(start.vector, end.vector, degrees_r, 10):
+                for middle_vec in elipse_generator(start.vector, end.vector, degrees_r * 0.75, accuracy):
                     middle_neighbors = self.__nbrs.kneighbors(
                             [(middle_vec.x, middle_vec.y)],
                             return_distance=False

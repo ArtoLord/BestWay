@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Iterable, Tuple, Mapping
-from models import Node
+from .models import Node
 from networkx import nx
 import json
 
@@ -70,8 +70,8 @@ class NxGraph(Graph):
             with open(nodes_filename, "r") as f:
                 nodes = json.load(f)
                 self.__nodes = {
-                        int(node['id']): Node.from_dict(node)
-                        for node in nodes.values()
+                        int(key): Node.from_dict(node)
+                        for key, node in nodes.items()
                         }
 
         self.__sync()
